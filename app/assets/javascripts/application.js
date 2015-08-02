@@ -17,26 +17,27 @@
 
 $('document').ready(function() {
 
-  function displayVals() {
-    calcUsage();
-    var singleValues = $("#more").val();
-    $("#span").html("<b>more addons:</b> " +
-    singleValues + ' QR');
-  }
-  var $cbs = $('input[name="ch1"]');
-  function calcUsage() {
-    var total = $("#more").val();
+function displayVals() {
+      calcUsage();
+}
+
+
+var $cbs = $('input[name="ch1"]');
+
+function calcUsage() {
+    var total = 0;
+    // var total = $("#more").val();
     $cbs.each(function() {
-      if (this.checked)
-      total = parseInt(total) + parseInt(this.value);
+        if (this.checked)
+            total = parseInt(total) + parseInt(this.value);
     });
     $("#usertotal").text(total + ' QR');
-  }
+}
 
-  $("select").change(displayVals);
-  displayVals();
-  //For  checkboxes
+    $("select").change(displayVals);
+    displayVals();
+//For  checkboxes
 
-  $cbs.click(calcUsage);
+$cbs.click(calcUsage);
 
 });
